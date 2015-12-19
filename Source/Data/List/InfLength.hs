@@ -77,7 +77,7 @@ infList ~<! finList = infList ~< length finList
 (<=~) :: (Integral i) => i -> [a] -> Bool
 n <=~ list = integralToNat n <= infLength list
 
-(!<~) :: [a] -> [b] -> Bool
+(!<=~) :: [a] -> [b] -> Bool
 finList !<=~ infList = length finList <=~ infList
 
 (~<=) :: (Integral i) => [a] -> i -> Bool
