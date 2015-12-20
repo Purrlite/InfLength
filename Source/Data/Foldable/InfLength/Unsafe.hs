@@ -8,14 +8,8 @@ module Data.Foldable.InfLength.Unsafe (
     infLength
 ) where
 
-import Prelude hiding (foldl', length)
-#if __GLASGOW_HASKELL__ >= 710
-import Data.Foldable (Foldable, foldl', length)
-#else
+import Prelude hiding (foldl')
 import Data.Foldable (Foldable, foldl')
-length :: (Foldable f) => f a -> Int
-length = foldl' (\a _ -> a+1) 0
-#endif
 
 
 data Nat = Zero | Succ Nat
