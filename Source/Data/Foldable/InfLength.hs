@@ -33,6 +33,7 @@ module Data.Foldable.InfLength (
 ) where
 
 import Prelude hiding (length, foldl')
+import Data.Foldable.InfLength.Unsafe
 #if __GLASGOW_HASKELL__ >= 710
 import Data.Foldable (Foldable, length)
 #else
@@ -40,7 +41,6 @@ import Data.Foldable (Foldable, foldl')
 length :: (Foldable f) => f a -> Int
 length = foldl' (\a _ -> a+1) 0
 #endif
-import Data.Foldable.InfLength.Unsafe
 
 
 (>~) :: (Foldable f, Integral i) => i -> f a -> Bool
