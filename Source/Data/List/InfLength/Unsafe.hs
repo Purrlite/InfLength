@@ -3,7 +3,7 @@ module Data.List.InfLength.Unsafe (
     intToNat,
     integralToNat,
     natToInt,
-    infLength    
+    infLength
 ) where
 
 
