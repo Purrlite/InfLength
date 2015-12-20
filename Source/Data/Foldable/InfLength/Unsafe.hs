@@ -1,5 +1,3 @@
-{-# LANGUAGE CPP #-}
-
 module Data.Foldable.InfLength.Unsafe (
     Nat(Zero,Succ),
     intToNat,

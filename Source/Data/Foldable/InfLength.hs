@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 module Data.Foldable.InfLength (
     (>~),
     (!>~),
