@@ -6,7 +6,6 @@ module Data.Foldable.InfLength.Unsafe (
     infLength
 ) where
 
-import Prelude hiding (foldl')
 import Data.Foldable (Foldable, foldl')
 
 

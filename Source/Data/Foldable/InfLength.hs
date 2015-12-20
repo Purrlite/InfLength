@@ -32,7 +32,7 @@ module Data.Foldable.InfLength (
     (~/=!)
 ) where
 
-import Prelude hiding (length, foldl')
+import Prelude hiding (length)
 import Data.Foldable.InfLength.Unsafe
 #if __GLASGOW_HASKELL__ >= 710
 import Data.Foldable (Foldable, length)
