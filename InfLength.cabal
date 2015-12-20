@@ -1,6 +1,6 @@
 name:                InfLength
 version:             0.1.0.0
--- synopsis:
+synopsis:            Length checking of potentially infinite lists/Foldables in Haskell 
 license:             MIT
 license-file:        LICENSE
 author:              Purlox
