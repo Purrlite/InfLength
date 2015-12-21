@@ -2,33 +2,31 @@
 
 module Data.Foldable.InfLength (
     (>~),
-    (!>~),
-    (~>),
-    (~>!),
-    
-    (>=~),
-    (!>=~),
-    (~>=),
-    (~>=!),
-    
     (<~),
-    (!<~),
-    (~<),
-    (~<!),
-    
+    (>=~),
     (<=~),
-    (!<=~),
-    (~<=),
-    (~<=!),
-    
     (==~),
-    (!==~),
-    (~==),
-    (~==!),
-    
     (/=~),
-    (!/=~),
+    
+    (~>),
+    (~<),
+    (~>=),
+    (~<=),
+    (~==),
     (~/=),
+    
+    (!>~),
+    (!<~),
+    (!>=~),
+    (!<=~),
+    (!==~),
+    (!/=~),
+    
+    (~>!),
+    (~<!),
+    (~>=!),
+    (~<=!),
+    (~==!),
     (~/=!)
 ) where
 
@@ -46,77 +44,75 @@ length = foldl' (\a _ -> a+1) 0
 (>~) :: (Foldable f, Integral i) => i -> f a -> Bool
 n >~ list = integralToNat n > infLength list
 
-(!>~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-finList !>~ infList = length finList >~ infList
-
-(~>) :: (Foldable f, Integral i) => f a -> i -> Bool
-list ~> n = infLength list > integralToNat n
-
-(~>!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-infList ~>! finList = infList ~> length finList
-
+(<~) :: (Foldable f, Integral i) => i -> f a -> Bool
+n <~ list = integralToNat n < infLength list
 
 (>=~) :: (Foldable f, Integral i) => i -> f a -> Bool
 n >=~ list = integralToNat n >= infLength list
 
-(!>=~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-finList !>=~ infList = length finList >=~ infList
-
-(~>=) :: (Foldable f, Integral i) => f a -> i -> Bool
-list ~>= n = infLength list >= integralToNat n
-
-(~>=!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-infList ~>=! finList = infList ~>= length finList
-
-
-(<~) :: (Foldable f, Integral i) => i -> f a -> Bool
-n <~ list = integralToNat n < infLength list
-
-(!<~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-finList !<~ infList = length finList <~ infList
-
-(~<) :: (Foldable f, Integral i) => f a -> i -> Bool
-list ~< n = infLength list < integralToNat n
-
-(~<!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-infList ~<! finList = infList ~< length finList
-
-
 (<=~) :: (Foldable f, Integral i) => i -> f a -> Bool
 n <=~ list = integralToNat n <= infLength list
-
-(!<=~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-finList !<=~ infList = length finList <=~ infList
-
-(~<=) :: (Foldable f, Integral i) => f a -> i -> Bool
-list ~<= n = infLength list <= integralToNat n
-
-(~<=!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-infList ~<=! finList = infList ~<= length finList
-
-
 
 (==~) :: (Foldable f, Integral i) => i -> f a -> Bool
 n ==~ list = integralToNat n == infLength list
 
-(!==~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-finList !==~ infList = length finList ==~ infList
+(/=~) :: (Foldable f, Integral i) => i -> f a -> Bool
+n /=~ list = integralToNat n /= infLength list
+
+
+(~>) :: (Foldable f, Integral i) => f a -> i -> Bool
+list ~> n = infLength list > integralToNat n
+
+(~<) :: (Foldable f, Integral i) => f a -> i -> Bool
+list ~< n = infLength list < integralToNat n
+
+(~>=) :: (Foldable f, Integral i) => f a -> i -> Bool
+list ~>= n = infLength list >= integralToNat n
+
+(~<=) :: (Foldable f, Integral i) => f a -> i -> Bool
+list ~<= n = infLength list <= integralToNat n
 
 (~==) :: (Foldable f, Integral i) => f a -> i -> Bool
 list ~== n = infLength list == integralToNat n
 
-(~==!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
-infList ~==! finList = infList ~== length finList
+(~/=) :: (Foldable f, Integral i) => f a -> i -> Bool
+list ~/= n = infLength list /= integralToNat n
 
 
-(/=~) :: (Foldable f, Integral i) => i -> f a -> Bool
-n /=~ list = integralToNat n /= infLength list
+
+(!>~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+finList !>~ infList = length finList >~ infList
+
+(!<~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+finList !<~ infList = length finList <~ infList
+
+(!>=~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+finList !>=~ infList = length finList >=~ infList
+
+(!<=~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+finList !<=~ infList = length finList <=~ infList
+
+(!==~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+finList !==~ infList = length finList ==~ infList
 
 (!/=~) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
 finList !/=~ infList = length finList /=~ infList
 
-(~/=) :: (Foldable f, Integral i) => f a -> i -> Bool
-list ~/= n = infLength list /= integralToNat n
+
+(~>!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+infList ~>! finList = infList ~> length finList
+
+(~<!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+infList ~<! finList = infList ~< length finList
+
+(~>=!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+infList ~>=! finList = infList ~>= length finList
+
+(~<=!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+infList ~<=! finList = infList ~<= length finList
+
+(~==!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
+infList ~==! finList = infList ~== length finList
 
 (~/=!) :: (Foldable f1, Foldable f2) => f1 a -> f2 b -> Bool
 infList ~/=! finList = infList ~/= length finList
