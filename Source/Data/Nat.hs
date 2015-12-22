@@ -6,6 +6,7 @@ module Data.Nat (
 ) where
 
 
+-- | Data representing the Natural numbers (including zero)
 data Nat = Zero | Succ Nat
     deriving (Show, Read, Eq, Ord)
 
