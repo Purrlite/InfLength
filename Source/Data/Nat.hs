@@ -7,7 +7,7 @@ module Data.Nat (
 
 
 data Nat = Zero | Succ Nat
-    deriving (Show, Eq, Ord)
+    deriving (Show, Read, Eq, Ord)
 
 
 intToNat :: Integer -> Nat
