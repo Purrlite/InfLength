@@ -16,7 +16,7 @@ intToNat n
     | n >= 0    = intToNat' n
     | otherwise = error "Negative number being converted to Nat!"
     where intToNat' 0 = Zero
-          intToNat' n = Succ $ intToNat' (n-1)
+          intToNat' i = Succ $ intToNat' (i-1)
 
 
 integralToNat :: (Integral i) => i -> Nat
