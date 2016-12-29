@@ -3,8 +3,8 @@ version:             0.1.1
 synopsis:            Length checking of potentially infinite lists/Foldables in Haskell 
 license:             MIT
 license-file:        LICENSE
-author:              Purlox
-maintainer:          purlox@gmail.com
+author:              Purrlite
+maintainer:          Purrlite@gmail.com
 category:            Data
 build-type:          Simple
 extra-source-files:  README.md
